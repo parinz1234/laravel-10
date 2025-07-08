@@ -1,0 +1,55 @@
+filebeat.inputs:
+- type: filestream
+  enabled: true
+  paths:
+    - /var/log/laravel/laravel.log
+  fields:
+    logtype: laravel
+    service_name: laravel-app
+    environment: local
+  fields_under_root: true
+  # Handle multiline Laravel logs (stack traces)
+  parsers:
+    - multiline:
+        type: pattern
+        pattern: '^\['
+        negate: true
+        match: after
+  # Parse JSON logs if Laravel outputs JSON
+  processors:
+    - decode_json_fields:
+        fields: ["message"]
+        target: ""
+        add_error_key: true
+
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"]
+  index: "laravel-logs-%{+yyyy.MM.dd}"
+
+setup.template.name: "laravel-logs"
+setup.template.pattern: "laravel-logs-*"
+setup.template.settings:
+  index.number_of_shards: 1
+  index.number_of_replicas: 0
+
+# Logging configuration
+logging.level: info
+logging.to_files: true
+logging.files:
+  path: /var/log/filebeat
+  name: filebeat
+  keepfiles: 7
+  permissions: 0644
+
+# Processors to add metadata
+processors:
+  - add_host_metadata:
+      when.not.contains.tags: forwarded
+  - add_docker_metadata: ~
+  - timestamp:
+      field: "@timestamp"
+      layouts:
+        - '2006-01-02T15:04:05.000Z'
+        - '2006-01-02T15:04:05Z'
+      test:
+        - '2023-06-23T17:25:04.123Z' 

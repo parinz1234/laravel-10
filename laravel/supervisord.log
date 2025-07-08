@@ -142,3 +142,47 @@
 2025-07-06 06:00:52,290 INFO spawned: 'memcached' with pid 8
 2025-07-06 06:00:53,433 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2025-07-06 06:00:53,526 INFO success: memcached entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-07-06 08:47:00,210 WARN received SIGQUIT indicating exit request
+2025-07-06 08:47:00,215 INFO waiting for php-fpm, memcached to die
+2025-07-06 08:47:00,960 INFO stopped: memcached (exit status 0)
+2025-07-06 08:47:00,972 INFO stopped: php-fpm (exit status 0)
+2025-07-06 08:47:01,810 INFO Set uid to user 0 succeeded
+2025-07-06 08:47:01,811 INFO supervisord started with pid 1
+2025-07-06 08:47:02,815 INFO spawned: 'php-fpm' with pid 7
+2025-07-06 08:47:02,816 INFO spawned: 'memcached' with pid 8
+2025-07-06 08:47:03,851 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-07-06 08:47:03,851 INFO success: memcached entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-07-06 08:48:12,027 WARN received SIGQUIT indicating exit request
+2025-07-06 08:48:12,032 INFO waiting for php-fpm, memcached to die
+2025-07-06 08:48:13,013 INFO stopped: memcached (exit status 0)
+2025-07-06 08:48:13,028 INFO stopped: php-fpm (exit status 0)
+2025-07-06 08:48:26,051 INFO Set uid to user 0 succeeded
+2025-07-06 08:48:26,055 INFO supervisord started with pid 1
+2025-07-06 08:48:27,058 INFO spawned: 'php-fpm' with pid 7
+2025-07-06 08:48:27,060 INFO spawned: 'memcached' with pid 8
+2025-07-06 08:48:28,082 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-07-06 08:48:28,083 INFO success: memcached entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-07-06 09:01:53,807 WARN received SIGQUIT indicating exit request
+2025-07-06 09:01:53,811 INFO waiting for php-fpm, memcached to die
+2025-07-06 09:01:54,509 INFO stopped: memcached (exit status 0)
+2025-07-06 09:01:55,537 INFO stopped: php-fpm (exit status 0)
+2025-07-06 09:01:55,988 INFO Set uid to user 0 succeeded
+2025-07-06 09:01:55,990 INFO supervisord started with pid 1
+2025-07-06 09:01:56,994 INFO spawned: 'php-fpm' with pid 7
+2025-07-06 09:01:56,997 INFO spawned: 'memcached' with pid 8
+2025-07-06 09:01:58,030 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-07-06 09:01:58,033 INFO success: memcached entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-07-06 09:03:35,005 WARN received SIGQUIT indicating exit request
+2025-07-06 09:03:35,008 INFO waiting for php-fpm, memcached to die
+2025-07-06 09:03:35,286 INFO stopped: memcached (exit status 0)
+2025-07-06 09:03:36,302 INFO stopped: php-fpm (exit status 0)
+2025-07-06 09:03:36,702 INFO Set uid to user 0 succeeded
+2025-07-06 09:03:36,706 INFO supervisord started with pid 1
+2025-07-06 09:03:37,721 INFO spawned: 'php-fpm' with pid 7
+2025-07-06 09:03:37,726 INFO spawned: 'memcached' with pid 8
+2025-07-06 09:03:38,761 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-07-06 09:03:38,761 INFO success: memcached entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-07-08 06:06:59,589 WARN received SIGQUIT indicating exit request
+2025-07-08 06:06:59,629 INFO waiting for php-fpm, memcached to die
+2025-07-08 06:07:00,008 INFO stopped: memcached (exit status 0)
+2025-07-08 06:07:00,102 INFO stopped: php-fpm (exit status 0)
