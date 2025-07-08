@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Cache;
+// Removed Cache facade import - not needed
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/cache-test', [App\Http\Controllers\CacheTestController::class, 'cacheTest']);
+// Removed cache-test route - not needed for New Relic POC

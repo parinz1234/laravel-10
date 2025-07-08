@@ -10,12 +10,9 @@ FROM php:${PHP_VERSION}-fpm-alpine${ALPINE_VERSION}
 # Set working directory for all subsequent commands
 WORKDIR /var/www/html
 
-# FIX: Use a more robust, multi-stage dependency installation.
-# 1. Install permanent, runtime dependencies.
+# Install permanent, runtime dependencies (removed memcached)
 RUN apk add --no-cache \
     supervisor \
-    memcached \
-    libmemcached-libs \
     zlib \
     libzip \
     curl \
@@ -29,11 +26,9 @@ RUN apk add --no-cache \
     libpng \
     libwebp
 
-# 2. Install temporary build dependencies, build the extensions, then remove the build dependencies.
-# This ensures a clean build environment and a smaller final image.
+# Install temporary build dependencies and PHP extensions (removed memcached)
 RUN apk add --no-cache --virtual .build-deps \
     $PHPIZE_DEPS \
-    libmemcached-dev \
     zlib-dev \
     libzip-dev \
     libxml2-dev \
@@ -52,8 +47,6 @@ RUN apk add --no-cache --virtual .build-deps \
         pdo_mysql \
         xml \
         zip \
-    && pecl install memcached \
-    && docker-php-ext-enable memcached \
     && apk del .build-deps
 
 # Install Composer globally
@@ -65,10 +58,7 @@ RUN mkdir -p /var/log/supervisor
 # Copy the Supervisor configuration file into the container
 COPY docker/supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Create a dedicated user for the memcached service to run as.
-RUN addgroup -S memcache && adduser -S -G memcache memcache
-
-# Create a non-root user 'www' to run the application
+# Create a non-root user 'www' to run the application (removed memcache user)
 RUN addgroup -g 1000 -S www && adduser -u 1000 -S www -G www
 
 # Change the ownership of the webroot
